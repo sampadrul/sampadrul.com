@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sam Padrul</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f5f5;
+      --border: #e0e0e0;
+      --accent: #1db954; /* Spotify green */
+      --text: #111111;
+      --muted: #777;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Social bar ── */
+    .social-bar {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      padding: 16px 28px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .social-bar a {
+      color: var(--muted);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-bar a:hover { color: var(--text); }
+    .social-bar a.instagram:hover { color: #e1306c; }
+    .social-bar a.facebook:hover  { color: #1877f2; }
+
+    /* ── Platform links ── */
+    .platforms {
+      margin-top: 36px;
+    }
+
+    .platforms-label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .platform-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .platform-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      background: transparent;
+    }
+
+    .platform-btn:hover {
+      color: var(--text);
+      border-color: #555;
+      background: #ebebeb;
+    }
+
+    .platform-btn i { font-size: 0.9rem; }
+
+    /* platform accent colors on hover */
+    .platform-btn.apple:hover   { color: #fc3c44; border-color: #fc3c44; }
+    .platform-btn.gplay:hover   { color: #01875f; border-color: #01875f; }
+    .platform-btn.amazon:hover  { color: #ff9900; border-color: #ff9900; }
+    .platform-btn.soundcloud:hover { color: #ff5500; border-color: #ff5500; }
+    .platform-btn.youtube:hover { color: #ff0000; border-color: #ff0000; }
+    .platform-btn.tidal:hover   { color: #00ffff; border-color: #00ffff; }
+
+    /* ── Hero ── */
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 100px 24px 72px;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #ececec 0%, var(--bg) 100%);
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: var(--accent);
+      margin: 32px auto 0;
+      opacity: 0.7;
+    }
+
+    header h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 200;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+
+    /* ── Main layout ── */
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    /* ── Section titles ── */
+    .section-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    /* ── Spotify ── */
+    .spotify-section iframe {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* ── Newsletter ── */
+    .newsletter-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .newsletter-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .newsletter-section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input[type="email"] {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: var(--accent);
+    }
+
+    .newsletter-form input[type="email"]::placeholder {
+      color: var(--muted);
+    }
+
+    .newsletter-form button {
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .newsletter-form button:hover {
+      opacity: 0.85;
+    }
+
+    .newsletter-note {
+      margin-top: 14px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .newsletter-section {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Social bar -->
+  <nav class="social-bar">
+    <a href="#" class="instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" class="facebook"  aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+  </nav>
+
+  <header>
+    <h1>Sam Padrul</h1>
+    <!-- Platform links — replace each # with your real profile URL -->
+    <div class="platforms">
+      <span class="platforms-label">Listen on</span>
+      <div class="platform-links">
+        <a href="https://music.apple.com/us/artist/sam-padrul/463022984" class="platform-btn apple"      target="_blank" rel="noopener"><i class="fa-brands fa-apple"></i> Apple Music</a>
+        <a href="https://soundcloud.com/sam-padrul"                    class="platform-btn soundcloud" target="_blank" rel="noopener"><i class="fa-brands fa-soundcloud"></i> SoundCloud</a>
+        <a href="https://music.youtube.com/channel/UC-h1owziqEUXRDXW-W-_eQA" class="platform-btn youtube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <a href="https://tidal.com/artist/5105896"                     class="platform-btn tidal"      target="_blank" rel="noopener"><i class="fa-solid fa-music"></i> Tidal</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Spotify Artist Embed -->
+    <section class="spotify-section">
+      <p class="section-title">Listen</p>
+      <iframe
+        src="https://open.spotify.com/embed/artist/6G6wGudDVkxMg6SaCF0bdF?utm_source=generator&theme=0"
+        height="700"
+        frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+        title="Sam Padrul on Spotify"
+      ></iframe>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <!--
+      TO CONNECT A NEWSLETTER SERVICE:
+      - Mailchimp (free up to 500 contacts): replace the form action with your Mailchimp embed URL
+      - ConvertKit / Kit (free up to 10k): use their embed form snippet
+      - Substack: link the button to your substack.com/subscribe URL instead
+    -->
+    <section class="newsletter-section">
+      <p class="section-title">Stay in the Loop</p>
+      <h2>Join the mailing list</h2>
+      <p>New music, shows, and updates — straight to your inbox. No spam, ever.</p>
+      <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-note" id="form-message"></p>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; <span id="year"></span> Sam Padrul. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const msg = document.getElementById('form-message');
+      const email = e.target.email.value;
+      // TODO: replace this block with your newsletter service's API call or form action
+      msg.style.color = '#1db954';
+      msg.textContent = `Thanks! We'll be in touch at ${email}.`;
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>
