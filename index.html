@@ -291,17 +291,12 @@
     </section>
 
     <!-- Newsletter Signup -->
-    <!--
-      TO CONNECT A NEWSLETTER SERVICE:
-      - Mailchimp (free up to 500 contacts): replace the form action with your Mailchimp embed URL
-      - ConvertKit / Kit (free up to 10k): use their embed form snippet
-      - Substack: link the button to your substack.com/subscribe URL instead
-    -->
     <section class="newsletter-section">
       <p class="section-title">Stay in the Loop</p>
       <h2>Join the mailing list</h2>
       <p>New music, shows, and updates — straight to your inbox. No spam, ever.</p>
-      <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+      <form class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="newsletter" />
         <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
         <button type="submit">Subscribe</button>
       </form>
@@ -317,15 +312,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function handleSubscribe(e) {
-      e.preventDefault();
-      const msg = document.getElementById('form-message');
-      const email = e.target.email.value;
-      // TODO: replace this block with your newsletter service's API call or form action
-      msg.style.color = '#1db954';
-      msg.textContent = `Thanks! We'll be in touch at ${email}.`;
-      e.target.reset();
-    }
   </script>
 
 </body>
