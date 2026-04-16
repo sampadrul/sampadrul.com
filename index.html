@@ -7,6 +7,14 @@
   <meta name="description" content="Official website of Sam Padrul. Listen to music on Spotify, Apple Music, SoundCloud, YouTube, and Tidal. Join the mailing list for new music and updates." />
   <meta name="keywords" content="Sam Padrul, music, artist, musician, Spotify, Apple Music, SoundCloud, Tidal" />
   <link rel="canonical" href="https://sampadrul.com" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1G6B2JH1NK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1G6B2JH1NK');
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
 
@@ -196,6 +204,13 @@
       margin-bottom: 16px;
     }
 
+    /* ── Bio ── */
+    .bio-section p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: #333;
+    }
+
     /* ── Spotify ── */
     .spotify-section iframe {
       width: 100%;
@@ -316,6 +331,12 @@
   </header>
 
   <main>
+
+    <!-- Bio -->
+    <section class="bio-section">
+      <p class="section-title">About</p>
+      <p>Sam Padrul is a Chicago-based musician with fifteen years of crafting music that moves. Drawing from the golden grooves of disco, the sleek textures of French house, and the sun-soaked ease of yacht rock, his sound sits at the intersection of danceable and timeless — music that feels both familiar and fresh. Whether behind the boards or performing live, Sam brings a deep love for rhythm, melody, and the moments that only music can create.</p>
+    </section>
 
     <!-- Spotify Artist Embed -->
     <section class="spotify-section">
